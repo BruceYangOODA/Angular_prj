@@ -69,3 +69,4 @@ $ ng generate service hero
     
     ### 這個部分實作失敗 
      Type 'Subscription' is missing the following properties from type 'Hero[]'  
+     棄用 Observable  
