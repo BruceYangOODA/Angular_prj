@@ -29,5 +29,15 @@ $ ng generate component heroes  創建網頁組件
   寫入 export const HEROES : Hero[] = [自定義資料]  (:)-> 繼承  
   在 heroes.component.ts 寫入 import { HEROES } from "../mock-heroes"; 導入資料類別  
 05. Angular html 語法  
-  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">  Angular html 語法  
+  * ngFor  
+  li *ngFor="let hero of heroes" (click)="onSelect(hero)"  Angular html 語法    
+  在 heroes.component.ts 為註冊監聽(click)的 onSelect 方法寫CODE  
+  selectedHero : Hero;  變數名稱與資料類型  
+  onSelect(hero:Hero): void { this.selectedHero = hero; }  方法內容  
+  *ngIf  
+  div *ngIf="selectedHero"  如果 selectedHero 是 空的，就不顯示這個 div 
+  不知為何 selectedHero 一定要初始化, 使用 piple解決  
+  在 heroes.component.ts 初始化 selectedHero 變數  
+  selectedHero : Hero | null;  
+  constructor() { this.selectedHero = null;}  
   
