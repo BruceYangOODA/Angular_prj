@@ -23,4 +23,11 @@ $ ng generate component heroes  創建網頁組件
   在heroes.component.html 寫入 <input [(ngModel)]="hero.name" placeholder="name" />  
   在myapp/src/app/app.module.ts 寫入 import { FormsModule } from "@angular/forms";  
   @NgModule imports:新增一行 FormsModule  
-  <input/>的資料修改會同步到 該hero資料  
+  input<> 的資料修改會同步到 該hero資料  
+04. 自定義資料  
+  在app/新增檔案 mock-heros.ts  
+  寫入 export const HEROES : Hero[] = [自定義資料]  (:)-> 繼承  
+  在 heroes.component.ts 寫入 import { HEROES } from "../mock-heroes"; 導入資料類別  
+05. Angular html 語法  
+  <li *ngFor="let hero of heroes" (click)="onSelect(hero)">  Angular html 語法  
+  
