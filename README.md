@@ -75,6 +75,6 @@ $ ng generate module app-routing --flat --module=app
     在 src/app/app-routing.module.ts  添加 路由  
     const routes: Routes = [{ path: 'heroes', component: HeroesComponent }];  
     在 app.component.html 添加 路由連結  
-    <nav><a routerLink="/heroes">Heroes</a></nav>  
+    nav a routerLink="/heroes" Heroes /a /nav  
 
 
