@@ -29,7 +29,7 @@ $ ng generate component heroes  創建網頁組件
   寫入 export const HEROES : Hero[] = [自定義資料]  (:)-> 繼承  
   在 heroes.component.ts 寫入 import { HEROES } from "../mock-heroes"; 導入資料類別  
 05. Angular html 語法  
-  * ngFor  
+  *ngFor  
   li *ngFor="let hero of heroes" (click)="onSelect(hero)"  Angular html 語法    
   在 heroes.component.ts 為註冊監聽(click)的 onSelect 方法寫CODE  
   selectedHero : Hero;  變數名稱與資料類型  
