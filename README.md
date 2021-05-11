@@ -76,5 +76,13 @@ $ ng generate module app-routing --flat --module=app
     const routes: Routes = [{ path: 'heroes', component: HeroesComponent }];  
     在 app.component.html 添加 路由連結  
     nav a routerLink="/heroes" Heroes /a /nav  
-
+    routerLink 是 RouterLink 指令的选择器，它会把用户的点击转换为路由器的导航操作  
+$ ng generate component dashboard  
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },  空路徑 跳轉到 /dashboard  
+    { path: 'detail/:id', component: HeroDetailComponent },  :id 路由可變參數  
+    在 dashboard.component.html 的 a 連結裡面增添 routerLink="/detail/{{hero.id}}"  
+    原本 heroes.component.html 用 onSelect()動作, 現在改用 a routerLink 進行動作  
+    在 hero-detail.component.ts 增添  
+    constructor(private route: ActivatedRoute, private heroService: HeroService,  
+    private location: Location)  
 
