@@ -41,4 +41,31 @@ $ ng generate component heroes  創建網頁組件
   selectedHero : Hero | null;  
   constructor() { this.selectedHero = null;}    
   [class.selected]="hero === selectedHero"  選擇到的物件變換html class裝飾  
-  
+07. 資料單向綁定  
+$ ng generate component hero-detail  
+    修飾 @Input() hero:Hero; 代表從外部傳入資料  
+    在父組件的html <app-hero-detail [hero]="selectedHero"></app-hero-detail>  導入子組件  
+    [子組件變數] = "父組件傳入的變數"  
+08. 服務  數據同步服務  
+$ ng generate service hero
+    系統生成檔案 myapp/hero.service.ts  
+    @Injectable()  注入 裝飾器  
+    getHeroes():Hero[] { return HEROES;}  服務的方法 提供數據  
+    在heroes.component.ts 註冊Service服務，import { HeroService } from '../hero.service';  
+    heroes : Hero[]; 修改參數宣告  
+    在 constructor 初始化參數  
+    constructor(private heroService: HeroService) {  
+    this.heroes = this.heroService.getHeroes();  
+    }  构造函数
+    getHeroes(): void { this.heroes = this.heroService.getHeroes(); }  
+    ngOnInit() { this.getHeroes(); }  在 ngOnInit() 中调用
+    让构造函数保持简单，只做初始化操作，比如把构造函数的参数赋值给属性。 构造函数不应该做任何事。
+    但是似乎 heroService 只能在 constructor 參數宣告當中獲取物件, 所以在 constructor 初始參數
+      
+    數據同步服務  
+    在hero.service.ts 註冊 import { Observable, from , of } from 'rxjs';  (rxjs -> reactive javascript)  
+    getHeroes():Observable<Hero[]> { return of(HEROES);}  
+    原返回資料型態 Hero[] 變為 Observable<Hero[]>  
+    
+    ### 這個部分實作失敗 
+     Type 'Subscription' is missing the following properties from type 'Hero[]'  
