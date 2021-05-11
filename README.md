@@ -35,9 +35,12 @@ $ ng generate component heroes  創建網頁組件
   selectedHero : Hero;  變數名稱與資料類型  
   onSelect(hero:Hero): void { this.selectedHero = hero; }  方法內容  
   *ngIf  
-  div *ngIf="selectedHero"  如果 selectedHero 是 空的，就不顯示這個 div 
-  不知為何 selectedHero 一定要初始化, 使用 piple解決  
+  div *ngIf="selectedHero"  如果 selectedHero 是 空的，就不顯示這個 div  
+  
+  不知為何 selectedHero 一定要初始化, 使用 piple解決    
   在 heroes.component.ts 初始化 selectedHero 變數  
   selectedHero : Hero | null;  
   constructor() { this.selectedHero = null;}  
+  
+  [class.selected]="hero === selectedHero"  選擇到的物件變換html class裝飾  
   
