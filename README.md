@@ -85,4 +85,17 @@ $ ng generate component dashboard
     在 hero-detail.component.ts 增添  
     constructor(private route: ActivatedRoute, private heroService: HeroService,  
     private location: Location)  
-
+10. Http 模擬模組  
+    在 app.module.ts 增添  
+    @NgModule({ imports: [HttpClientModule,],})  
+$ npm install angular-in-memory-web-api --save  
+    @NgModule({ imports: [HttpClientInMemoryWebApiModule  
+    .forRoot(InMemoryDataService, {dataEncapsulation: false }),],})  
+ $ ng generate service InMemoryData  
+     在 in-memory-data.service.ts 導入 InMemoryDbService 替代之前 mock-heroes.ts 的 HEROES   
+     export class InMemoryDataService implements InMemoryDbService  
+     在 hero.service.ts 導入 HTTP  
+     constructor(private http: HttpClient) { }  
+     新增一個方法  
+     private log(message: string) { this.messageService.add(`HeroService: ${message}`);}
+###　後續部分碰觸到 Observable<Hero[]>  
