@@ -98,4 +98,5 @@ $ npm install angular-in-memory-web-api --save
      constructor(private http: HttpClient) { }  
      新增一個方法  
      private log(message: string) { this.messageService.add(`HeroService: ${message}`);}  
-     ###　後續部分碰觸到 Observable<Hero[]>  
+     
+    ### 後續部分碰觸到 Observable<Hero[]>  
